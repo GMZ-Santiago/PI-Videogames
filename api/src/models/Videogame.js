@@ -8,8 +8,8 @@ module.exports = (sequelize) => {
     {
       id: {
         type: DataTypes.UUID,
+        primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
-        primaryKey: true
       },
       name: {
         type: DataTypes.STRING,
@@ -33,14 +33,11 @@ module.exports = (sequelize) => {
       },
       created: {
         type: DataTypes.BOOLEAN,
-        defaultValue:false,
-        
-      }
+        defaultValue: false,
+      },
     },
     {
       timestamps: false,
     }
   );
 };
-
-
