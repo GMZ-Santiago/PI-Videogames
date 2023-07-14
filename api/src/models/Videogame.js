@@ -15,21 +15,24 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      platforms: {
+        type: DataTypes.INTEGER,
+      },
       description: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
       image: {
         type: DataTypes.STRING,
-        allowNull: false,
+        // allowNull: false,
       },
       releaseDate: {
         type: DataTypes.DATEONLY,
-        allowNull: false,
+        // allowNull: false,
       },
       rating: {
         type: DataTypes.FLOAT,
-        allowNull: false,
+        // allowNull: false,
       },
       created: {
         type: DataTypes.BOOLEAN,

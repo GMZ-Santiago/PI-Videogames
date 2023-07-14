@@ -1,34 +1,34 @@
-import React from "react";
-import s from "../Card/card.module.css";
-import { Link } from "react-router-dom";
+// import React from 'react';
 
-function card({ id, image, name, platforms, genres, rating }) {
-  const renderGenres = () => {
-    if (Array.isArray(genres)) {
-      return genres.join(", ");
-    }
-    return "No se encuentran generos";
-  };
+// function Card ({id, name, platforms, releasedData, rating, genres, image}) {
+
+//   return (
+//     <div className="card-container">
+//       <h2>{name}</h2>
+//       {id && <h3>Id: {id}</h3>}
+//       {platforms && <h3>{platforms}</h3>}
+//       {releasedData && <h3>{releasedData}</h3>}
+//       {rating && <h3>{rating}</h3>}
+//       {genres && <h3>{genres}</h3>}
+//       {/* <div className="cardImage">
+//         {image && <img src={image} alt="image del personaje" height="300px" />} */}
+//       {/* </div> */}
+//     </div>
+//   );
+// }
+
+// export default Card
+import React from "react";
+import style from "./card.module.css";
+
+function Card(props) {
   return (
-    <div className={s.card}>
-      <img scr={image} alt={name} className={s.card_image} />
-      <div style={{ textDecoration: "none" }} className={s.card_content}>
-        <h3 style={{ textDecoration: "none" }} className={s.nombre}>
-          {name}
-        </h3>
-        <p style={{ textDecoration: "none" }} className={s.platforms}>
-          {platforms}
-        </p>
-        <p style={{ textDecoration: "none" }} className={s.genres}>
-          {renderGenres()}
-        </p>
-        <Link to={`/detail/${id}`} className={s.link}>
-          {" "}
-          <span className={s.leer_mas}>Más detalles</span>{" "}
-        </Link>
-      </div>
+    <div className={style.card}>
+      <img src={props.background_image} alt={props.name} />
+      <h2>{props.name}</h2>
+      <p>{props.gender}</p>
     </div>
   );
 }
 
-export default card;
+export default Card;

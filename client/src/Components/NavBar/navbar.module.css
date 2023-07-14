@@ -1,0 +1,47 @@
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    padding: 0 20px;
+    border-radius: 10px;
+    /* Elimina el background-color del .mainContainer */
+  }
+.mainContainer a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #333; /* Añade el background-color solo a los botones */
+    transition: background-color 0.3s ease;
+  }
+  .mainContainer a:hover {
+    background-color: #555;
+  }
+  
+  .mainContainer a.active {
+    background-color: #555;
+  }
+  
+  .mainContainer a:first-child {
+    margin-left: 0;
+  }
+  
+  .mainContainer a:last-child {
+    margin-right: 0;
+  }
+  
+  .mainContainer a::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+  }
+  
+  .mainContainer a:hover::after,
+  .mainContainer a.active::after {
+    background-color: #fff;
+  }

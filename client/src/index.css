@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(https://cdn.domestika.org/c_fit,dpr_auto,f_auto,t_base_params,w_820/v1611312034/content-items/006/839/961/Background-original.jpg?1611312034);
+  background-repeat: no-repeat;
+  background-size: 100% 100%; /* Ajustar la imagen a toda la página */
+  background-position: center;
+  height: 100vh;
 }
 
 code {

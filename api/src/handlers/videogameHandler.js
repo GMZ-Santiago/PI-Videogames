@@ -2,45 +2,32 @@ const {
   getVideogameById,
   createVideogame,
   getAllVideogames,
-  searchByName
+  searchByName,
 } = require("../controllers/videogamesControllers");
 const { Genres, Videogame } = require("../db");
 
 const getVideogamesHandler = async (req, res) => {
   const { name } = req.query;
-
-  const results = name ? await searchByName(name) : await getAllVideogames()
-  res.status(200).json(results);
-};
-
-const postVideogame = async (req, res) => {
   try {
-    const {
-      name,
-      description,
-      platforms,
-      releaseData,
-      created,
-      rating,
-      image,
-      genres,
-    } = req.body;
-    const newGame = await createVideogame(
-      name,
-      description,
-      platforms,
-      releaseData,
-      created,
-      rating,
-      image,
-      genres
-    );
-    res.status(200).json(newGame);
+    const api = await getAllVideogames();
+    res.status(200).json(api);
+    // const results = name ? await searchByName(name) : await getAllVideogames();
+    // res.status(200).json(results);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
 
+
+const postVideogame = async (req, res) => {
+  try {
+      const { name, description, released, rating, platform, genres, image } = req.body;
+      const createdGame = await createVideogame(name, description, released, rating, platform, genres, image)
+      res.status(200).json(createdGame)
+  } catch (error) {
+      res.status(500).send({error: error.message}); 
+  }
+}
 
 const getVideogameId = async (req, res) => {
   const { id } = req.params;

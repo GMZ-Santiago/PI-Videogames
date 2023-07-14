@@ -3,12 +3,14 @@ const { API_KEY } = process.env;
 
 const getGenres = async () => {
   try {
+    let gamesGenres = [];
     let getGenres = await axios.get(
-      `https://api.rawg.io/api/genres?key=${API_KEY}`
+      `https://api.rawg.io/api/genres?key=dbff6f3d29ba424984abc923dd1365ef`
     );
 
-    const genres = getGenres.data.resulys.map((g) => g.name);
-    return genres;
+    const genres = getGenres.data.results.map((g) => g.name);
+    gamesGenres.push(genres)
+    return gamesGenres;
   } catch (error) {
     return { error: "Not found" };
   }
